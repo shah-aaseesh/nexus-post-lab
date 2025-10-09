@@ -3,7 +3,16 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Layout from "./components/Layout";
+import Auth from "./pages/Auth";
+import Feed from "./pages/Feed";
+import Profile from "./pages/Profile";
+import Communities from "./pages/Communities";
+import Chat from "./pages/Chat";
+import Opportunities from "./pages/Opportunities";
+import Blogs from "./pages/Blogs";
+import Podcasts from "./pages/Podcasts";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +24,15 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/" element={<Layout><Feed /></Layout>} />
+          <Route path="/profile/:username" element={<Layout><Profile /></Layout>} />
+          <Route path="/communities" element={<Layout><Communities /></Layout>} />
+          <Route path="/chat" element={<Layout><Chat /></Layout>} />
+          <Route path="/opportunities" element={<Layout><Opportunities /></Layout>} />
+          <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
+          <Route path="/podcasts" element={<Layout><Podcasts /></Layout>} />
+          <Route path="/admin" element={<Layout><Admin /></Layout>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
