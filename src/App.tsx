@@ -8,7 +8,8 @@ import Auth from "./pages/Auth";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Communities from "./pages/Communities";
-import Chat from "./pages/Chat";
+import CommunityDetail from "./pages/CommunityDetail";
+import ChatPage from "./pages/ChatPage";
 import Opportunities from "./pages/Opportunities";
 import Blogs from "./pages/Blogs";
 import Podcasts from "./pages/Podcasts";
@@ -28,7 +29,8 @@ const App = () => (
           <Route path="/" element={<Layout><Feed /></Layout>} />
           <Route path="/profile/:username" element={<Layout><Profile /></Layout>} />
           <Route path="/communities" element={<Layout><Communities /></Layout>} />
-          <Route path="/chat" element={<Layout><Chat /></Layout>} />
+          <Route path="/community/:id" element={<Layout><CommunityDetail /></Layout>} />
+          <Route path="/chat" element={<Layout><ChatPage /></Layout>} />
           <Route path="/opportunities" element={<Layout><Opportunities /></Layout>} />
           <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
           <Route path="/podcasts" element={<Layout><Podcasts /></Layout>} />

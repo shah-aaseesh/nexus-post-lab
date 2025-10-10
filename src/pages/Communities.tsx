@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Users, Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Communities = () => {
+  const navigate = useNavigate();
   const [myCommunities, setMyCommunities] = useState<any[]>([]);
   const [allCommunities, setAllCommunities] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -93,7 +95,13 @@ const Communities = () => {
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                       {community.description}
                     </p>
-                    <Button variant="outline" className="w-full">View</Button>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => navigate(`/community/${community.id}`)}
+                    >
+                      View Community
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -126,10 +134,20 @@ const Communities = () => {
                   <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                     {community.description}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-3">
                     <span className="text-sm text-muted-foreground">
                       {community.community_members?.[0]?.count || 0} members
                     </span>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => navigate(`/community/${community.id}`)}
+                    >
+                      View
+                    </Button>
                     <Button size="sm" onClick={() => joinCommunity(community.id)}>
                       <Plus className="h-4 w-4 mr-1" />
                       Join
