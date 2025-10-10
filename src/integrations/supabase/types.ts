@@ -561,7 +561,16 @@ export type Database = {
         | "event"
         | "fellowship"
       post_type: "text" | "image" | "video" | "blog" | "opportunity"
-      reaction_type: "like" | "love" | "celebrate" | "support" | "insightful"
+      reaction_type:
+        | "like"
+        | "love"
+        | "celebrate"
+        | "support"
+        | "insightful"
+        | "haha"
+        | "wow"
+        | "sad"
+        | "angry"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -698,7 +707,17 @@ export const Constants = {
         "fellowship",
       ],
       post_type: ["text", "image", "video", "blog", "opportunity"],
-      reaction_type: ["like", "love", "celebrate", "support", "insightful"],
+      reaction_type: [
+        "like",
+        "love",
+        "celebrate",
+        "support",
+        "insightful",
+        "haha",
+        "wow",
+        "sad",
+        "angry",
+      ],
     },
   },
 } as const
